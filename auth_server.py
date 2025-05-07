@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
 import os
-
+init_db()
 app = Flask(__name__)
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
 # Simple CORS configuration
@@ -16,6 +16,8 @@ def after_request(response):
     response.headers.add('Access-Control-Allow-Credentials', 'true')
     return response
 
+print("Current working directory:", os.getcwd())
+print("Database path:", os.path.abspath('users.db'))
 # Initialize SQLite database
 def init_db():
     try:
