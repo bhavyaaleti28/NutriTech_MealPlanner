@@ -4,7 +4,7 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-init_db()
+
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
 # Simple CORS configuration
 CORS(app, supports_credentials=True)
@@ -45,7 +45,7 @@ def init_db():
     except Exception as e:
         print(f"Error initializing database: {str(e)}")
         raise
-
+init_db()
 @app.route('/signup', methods=['POST', 'OPTIONS'])
 def signup():
     if request.method == 'OPTIONS':
