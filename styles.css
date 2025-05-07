@@ -337,3 +337,8 @@ button, #backToFormButton, #mealPlanButton {
 .logout-btn:hover {
     background-color: #d32f2f;
 }
+
+#logoutButton:hover {
+    background: #2566a0;
+    color: #fff;
+}
