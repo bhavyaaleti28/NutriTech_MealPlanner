@@ -4,6 +4,7 @@ import google.generativeai as genai
 import markdown
 import traceback
 import time
+import os
 
 app = Flask(__name__)
 
