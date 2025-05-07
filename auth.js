@@ -29,7 +29,7 @@ async function handleLogin() {
     }
 
     try {
-        const response = await fetch('http://localhost:5001/login', {
+        const response = await fetch('https://nutritech-auth.onrender.com/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ async function handleSignup() {
     }
 
     try {
-        const response = await fetch('http://localhost:5001/signup', {
+        const response = await fetch('https://nutritech-auth.onrender.com/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
