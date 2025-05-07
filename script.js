@@ -64,7 +64,7 @@ async function generateMealPlan(event) {
     try {
         // Save user data
         console.log('Sending data to server...');
-        const saveResponse = await fetch('http://127.0.0.1:5001/update_user', {
+        const saveResponse = await fetch('https://nutritech-auth.onrender.com/update_user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ async function generateMealPlan(event) {
 
         // Generate meal plan
         console.log('Generating meal plan...');
-        const mealPlanResponse = await fetch('http://127.0.0.1:5000/generate_meal_plan', {
+        const mealPlanResponse = await fetch('https://nutritech-mealplan.onrender.com/generate_meal_plan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
