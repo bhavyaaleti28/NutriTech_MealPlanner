@@ -2,8 +2,9 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
 import os
-init_db()
+
 app = Flask(__name__)
+init_db()
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
 # Simple CORS configuration
 CORS(app, supports_credentials=True)
