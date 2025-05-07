@@ -1,4 +1,4 @@
-    // At the top of script.js or in a <script> tag in index.html
+    // Redirect to login if not logged in
     if (!localStorage.getItem('userEmail')) {
         window.location.href = 'login.html';
     }
@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             welcomeDiv.textContent = 'Welcome, User';
         }
+    }
+
+    // Show logout button if logged in
+    const logoutBtn = document.getElementById('logoutButton');
+    if (logoutBtn && userName) {
+        logoutBtn.style.display = 'block';
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userName');
+            window.location.href = 'login.html';
+        });
     }
 
     const form = document.getElementById('nutritionForm');
