@@ -19,33 +19,26 @@ def after_request(response):
 # Initialize SQLite database
 def init_db():
     try:
-        # Only create the database if it doesn't exist
-        if not os.path.exists('users.db'):
-            print("Creating new database...")
-            conn = sqlite3.connect('users.db')
-            c = conn.cursor()
-            
-            # Create users table
-            c.execute('''CREATE TABLE IF NOT EXISTS users
-                         (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                          name TEXT NOT NULL,
-                          email TEXT NOT NULL UNIQUE,
-                          password TEXT NOT NULL,
-                          age INTEGER,
-                          gender TEXT,
-                          height REAL,
-                          weight REAL,
-                          diet_type TEXT,
-                          cuisine TEXT,
-                          allergies TEXT,
-                          health_goal TEXT,
-                          activity_level TEXT)''')
-            
-            conn.commit()
-            conn.close()
-            print("Database created successfully")
-        else:
-            print("Using existing database")
+        conn = sqlite3.connect('users.db')
+        c = conn.cursor()
+        # Always try to create the table if it doesn't exist
+        c.execute('''CREATE TABLE IF NOT EXISTS users
+                     (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                      name TEXT NOT NULL,
+                      email TEXT NOT NULL UNIQUE,
+                      password TEXT NOT NULL,
+                      age INTEGER,
+                      gender TEXT,
+                      height REAL,
+                      weight REAL,
+                      diet_type TEXT,
+                      cuisine TEXT,
+                      allergies TEXT,
+                      health_goal TEXT,
+                      activity_level TEXT)''')
+        conn.commit()
+        conn.close()
+        print("Database and table ensured.")
     except Exception as e:
         print(f"Error initializing database: {str(e)}")
         raise
