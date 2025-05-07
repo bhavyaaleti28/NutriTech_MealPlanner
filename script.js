@@ -1,3 +1,7 @@
+    // At the top of script.js or in a <script> tag in index.html
+    if (!localStorage.getItem('userEmail')) {
+        window.location.href = 'login.html';
+    }
 let currentStep = 0;
 const formSteps = document.querySelectorAll('.form-step');
 

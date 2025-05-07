@@ -4,13 +4,13 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
 # Simple CORS configuration
 CORS(app, supports_credentials=True)
 
 @app.after_request
 def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'http://127.0.0.1:5500')
+    response.headers.add('Access-Control-Allow-Origin',FRONTEND_URL )
     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Accept,Origin')
     response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
     response.headers.add('Access-Control-Allow-Credentials', 'true')
