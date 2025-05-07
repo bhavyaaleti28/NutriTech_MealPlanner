@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             console.log('Sending signup request...');
-            const response = await fetch('http://localhost:5001/signup', {
+            const response = await fetch('https://nutritech-auth.onrender.com/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
