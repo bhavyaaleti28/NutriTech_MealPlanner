@@ -20,7 +20,7 @@ def after_request(response):
     return response
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyA1LpSjATRhpedvCKgtWU1XZ3sxUfJP7a4")  # Replace with your actual API key
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))# Replace with your actual API key
 
 # Create Gemini model instance
 model = genai.GenerativeModel("gemini-1.5-flash")
