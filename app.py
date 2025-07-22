@@ -23,7 +23,7 @@ def after_request(response):
 genai.configure(api_key="AIzaSyA1LpSjATRhpedvCKgtWU1XZ3sxUfJP7a4")  # Replace with your actual API key
 
 # Create Gemini model instance
-model = genai.GenerativeModel("tunedModels/personalizeddietrecommendation-1h9ouyrco")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Function to generate a meal plan
 def generate_meal_plan(data):
