@@ -5,6 +5,8 @@ import markdown
 import traceback
 import time
 import os
+from dotenv import load_dotenv
+
 
 app = Flask(__name__)
 
@@ -20,6 +22,7 @@ def after_request(response):
     return response
 
 # Configure Gemini API
+load_dotenv()
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))# Replace with your actual API key
 
 # Create Gemini model instance
