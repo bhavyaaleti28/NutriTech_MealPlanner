@@ -14,6 +14,7 @@ app = Flask(__name__)
 #CORS(app, supports_credentials=True)
 FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
 CORS(app, origins=[FRONTEND_URL], supports_credentials=True)
+print(f"FRONTEND_URL is: '{FRONTEND_URL}'")
 #@app.after_request
 #def after_request(response):
     #response.headers.add('Access-Control-Allow-Origin', FRONTEND_URL)
