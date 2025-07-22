@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Simple CORS configuration
 CORS(app, supports_credentials=True)
-FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://127.0.0.1:5500')
+FRONTEND_URL = 'https://nutritech-frontend.onrender.com'
 @app.after_request
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', FRONTEND_URL)
